@@ -32,6 +32,7 @@ function drawPaddle() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);   
     drawBall();
+    drawPaddle();
     x += dx;
     y += dy;
 
