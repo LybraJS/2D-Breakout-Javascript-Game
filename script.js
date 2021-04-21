@@ -7,15 +7,34 @@ var y = canvas.height-30;
 var dx = 2;
 var dy = -2;
 
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);   
+var ballRadius = 10;
+
+var paddleheight = 10;
+var paddleWidth  = 75;
+var paddleX = (canvas.width-paddleWidth) / 2;
+
+function drawBall() {
     ctx.beginPath();
-    ctx.arc(x, y, 10, 0, Math.PI*2);
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
     ctx.fillStyle = '#0095DD';
     ctx.fill();
     ctx.closePath();
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);   
+    drawBall();
     x += dx;
     y += dy;
+
+    if(y - ballRadius < 0 || y + ballRadius > canvas.height) {
+        dy = -dy;
+    }
+
+    if(x - ballRadius < 0 || x + ballRadius > canvas.width) {
+        dx = -dx;
+    }
+
 }
 
 setInterval(draw, 10);
