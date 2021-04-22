@@ -16,6 +16,7 @@ var paddleX = (canvas.width-paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
 
+
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
@@ -92,6 +93,8 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+
+
 
 var interval = setInterval(draw, 10);
 
