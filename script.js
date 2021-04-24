@@ -4,8 +4,9 @@ var ctx = canvas.getContext('2d');
 var x = canvas.width/2;
 var y = canvas.height-30;
 
-var dx = 2;
-var dy = -2;
+var dx = 3;
+var dy = -3
+;
 
 var ballRadius = 10;
 
@@ -44,7 +45,7 @@ for(var c=0; c<brickColumnCount; c++) {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = 'red';
     ctx.fill();
     ctx.closePath();
 }
@@ -52,7 +53,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "red";
     ctx.fill();
     ctx.closePath();
 }
@@ -67,7 +68,7 @@ function drawBricks() {
             bricks[c][r].y = brickY;
             ctx.beginPath();
             ctx.rect(brickX, brickY, brickWidth, brickHeight);
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "red";
             ctx.fill();
             ctx.closePath();
             }
@@ -161,7 +162,7 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if (score == brickRowCount * brickColumnCount) {
-                        alert('WINNER, CONGRATULATIONS!'),
+                        alert('WINNER WINNER, CHICKEN DINNER!'),
                         document.location.reload();
                     }
                 }
@@ -172,13 +173,13 @@ function collisionDetection() {
 
 function drawScore() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#ff0000";
     ctx.fillText("Score: "+ score, 8, 20);
 }
 
 function drawLives() {
     ctx.font = '16px Arial';
-    ctx.fillStyle = '#0095DD';
+    ctx.fillStyle = '#ff0000';
     ctx.fillText('Lives: ' + lives, canvas.width-65, 20);
 }
 
